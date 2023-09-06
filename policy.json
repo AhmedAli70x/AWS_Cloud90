@@ -1,0 +1,20 @@
+{
+    "Version": "2012-10-17",
+    "Id": "Allow specific IP",
+    "Statement": [
+        {
+            "Sid": "IPAllow",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:*",
+            "Resource": [
+                "arn:aws:s3:::rakion2010/*"
+            ],
+            "Condition": {
+                "IpAddress": {
+                    "aws:SourceIp": "107.161.145.201"
+                }
+            }
+        }
+    ]
+}
