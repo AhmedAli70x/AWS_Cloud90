@@ -32,6 +32,7 @@ else
 fi
 
 
+
 create_subnet()
 {   
     # $1 subnet number, $2 az, $3 public or private
@@ -118,7 +119,7 @@ fi
 # ----------------------------------------------------------------------------
 
 echo "public route table will be created after 10 secs"
-sleep 10
+# sleep 10
 
 
 # create public rout table
@@ -207,11 +208,22 @@ echo "new acl id is $acl_id"
 
 my_ip=""
 echo "getting your IP"
-my_ip=$(curl -s https://api64.ipify.org)
+my_ip= curl -s https://api64.ipify.org  
+my_ip_1=/32$my_ip
+echo "$my_ip_1"
+
+
+my_ip=""
+echo "getting your IP"
+my_ip= curl -s https://api64.ipify.org 
 my_ip="$my_ip/32" 
-echo "$my_ip"
+# my_ip_1=/32$my_ip
+echo "IP is $my_ip"
 
 
+
+##
+ 
 
 echo "\\n ----------------"
 aws ec2 create-network-acl-entry \

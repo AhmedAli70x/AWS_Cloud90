@@ -20,9 +20,11 @@ echo "new acl id is $acl_id"
 
 my_ip=""
 echo "getting your IP"
-my_ip= curl -s https://api64.ipify.org  
-my_ip=/32$my_ip
-echo "$my_ip"
+my_ip=$(curl -s https://api64.ipify.org)
+
+my_ip1="$my_ip/32"
+echo "this is my ip $my_ip1"
+x = y + z
 
 echo "\\n ----------------"
 aws ec2 create-network-acl-entry \
@@ -31,7 +33,7 @@ aws ec2 create-network-acl-entry \
   --protocol -1 \
   --rule-action allow \
   --ingress \
-  --cidr $my_ip
+  --cidr "$my_ip/32"
 
 echo "Inbound rule added to your IP, allow"
 
@@ -42,7 +44,8 @@ aws ec2 create-network-acl-entry \
   --protocol -1 \
   --rule-action allow \
   --egress \
-  --cidr $my_ip
+  --cidr "$my_ip/32"
+
 
 echo "Inbound rule added to your IP, allow"
 
