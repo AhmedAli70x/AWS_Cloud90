@@ -2,6 +2,7 @@
 
 # create vpc 10.0.0.0/16
 
+
 check_vpc=$(aws ec2 describe-vpcs --region eu-west-2 --filters Name=tag:Name,Values=devops90-vpc | grep -oP '(?<="VpcId": ")[^"]*')
 
 if [ "$check_vpc" == "" ]; then
