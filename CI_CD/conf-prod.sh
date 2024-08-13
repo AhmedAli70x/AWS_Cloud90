@@ -1,0 +1,11 @@
+dns_name="devops90.com"
+region="eu-west-2"
+network_cidr="10.0.0.0/16"
+public_subnets=(
+    "10.0.1.0/24,a"
+    "10.0.2.0/24,b"
+)
+private_subnets=(
+    "10.0.3.0/24,a"
+    "10.0.4.0/24,b"
+)
