@@ -19,7 +19,7 @@ source ./conf-${env}.sh
 echo $region
 
 source ./vpc.sh
-# source ./security.sh
+source ./security.sh
 # source ./autoscalinggroup.sh
 # source ./dns.sh
 
