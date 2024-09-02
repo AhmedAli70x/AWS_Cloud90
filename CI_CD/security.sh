@@ -68,7 +68,7 @@ delete_secret(){
 
 create_sg(){
     echo "Status: Creating SG...."
-    check_sg=$(aws ec2 describe-security-groups --filters Name=group-name,Values=${env}-main-sg)
+    check_sg=$(aws ec2 describe-security-groups --filters Name=group-name,Values=$security_group_name)
     echo $check_sg
 
     check_sg=$( echo "$check_sg" | grep -oP '(?<="GroupId": ")[^"]*' | uniq) 
@@ -93,8 +93,9 @@ create_sg(){
             rule=${rule/<new-security-group-id>/$sg_id}
             echo "Adding rule: $rule"
             Add_Rule_Output=$(aws ec2 authorize-security-group-ingress --group-id $sg_id --ip-permissions "$rule" 2>&1)
-            if [  ]; then
+            if [ $? -ne 0 ]; then
                 echo "Error While Adding Rule '$rule': $Add_Rule_Output"
+                echo "deleting the security group ..."
                 aws ec2 delete-security-group --group-id $sg_id
                 exit 1
             fi

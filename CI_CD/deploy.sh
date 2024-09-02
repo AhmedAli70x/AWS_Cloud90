@@ -20,8 +20,8 @@ echo $region
 
 source ./vpc.sh
 source ./security.sh
-# source ./autoscalinggroup.sh
-# source ./dns.sh
+source ./autoscalinggroup.sh
+source ./dns.sh
 
 
 

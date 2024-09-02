@@ -1,0 +1,44 @@
+{
+  "IamInstanceProfile": {
+    "Arn": "arn:aws:iam::500845238363:instance-profile/codedeploy_service_role"
+  },
+  "BlockDeviceMappings": [
+    {
+      "DeviceName": "/dev/sda1",
+      "Ebs": {
+        "Encrypted": false,
+        "DeleteOnTermination": true,
+        "VolumeSize": 16,
+        "VolumeType": "gp3"
+      }
+    }
+  ],
+  "NetworkInterfaces": [
+    {
+      "DeviceIndex": 0,
+      "AssociatePublicIpAddress": true,
+      "Groups": [
+        "sg-07b81b896533ea02a"
+      ],
+      "DeleteOnTermination": true
+    }
+  ],
+  "ImageId": "ami-07bc42ee4f2aaf81a",
+  "InstanceType": "t3.micro",
+  "KeyName": "prod-key-ec2-ssh",
+  "TagSpecifications": [
+    {
+      "ResourceType": "instance",
+      "Tags": [
+        {
+          "Key": "servicename",
+          "Value": "srv-02"
+        }
+      ]
+    }
+  ],
+  "Monitoring": {
+    "Enabled": true
+  },
+  "UserData": "IyEvYmluL2Jhc2gKYXB0IHVwZGF0ZQplY2hvICJpbnN0YWxsIGRvdG5ldCIKYXB0IGluc3RhbGwgLXkgYXNwbmV0Y29yZS1ydW50aW1lLTYuMCAjIGZvciBydW4gb25seQojYXB0IGluc3RhbGwgLXkgZG90bmV0LXNkay02LjAgI2ZvciBidWlsZCBhbmQgcnVuCiNhcHQgaW5zdGFsbCB1bnppcCAteQoKIyBJbnN0YWxsIGF3cyBDb2RlRGVwbG95IGFnZW50CmNkIC90bXAKYXB0IGluc3RhbGwgLXkgcnVieS1mdWxsIHdnZXQKd2dldCBodHRwczovL2F3cy1jb2RlZGVwbG95LXVzLWVhc3QtMS5zMy51cy1lYXN0LTEuYW1hem9uYXdzLmNvbS9sYXRlc3QvaW5zdGFsbApjaG1vZCAreCAuL2luc3RhbGwKLi9pbnN0YWxsIGF1dG8Kc2VydmljZSBjb2RlZGVwbG95LWFnZW50IHN0YXJ0Cg=="
+}

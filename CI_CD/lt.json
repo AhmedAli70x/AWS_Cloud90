@@ -1,0 +1,47 @@
+{
+  "IamInstanceProfile": {
+    "Arn": "arn:aws:iam::500845238363:instance-profile/codedeploy_service_role"
+    
+  },
+  "BlockDeviceMappings": [
+    {
+      "DeviceName": "/dev/sda1",
+      "Ebs": {
+        "Encrypted": false,
+        "DeleteOnTermination": true,
+        "VolumeSize": 16,
+        "VolumeType": "gp3"
+      }
+    }
+  ],
+  "NetworkInterfaces": [
+      {
+          "DeviceIndex": 0,
+          "AssociatePublicIpAddress": true,
+          "Groups": [
+              "{sg_id}"
+          ],
+          "DeleteOnTermination": true
+      }
+  ],
+  "ImageId": "{ami_id}",
+  "InstanceType": "t3.micro",
+  "KeyName": "{env}-key-ec2-ssh",
+  "TagSpecifications": [
+      {
+          "ResourceType": "instance",
+          "Tags": [
+              {
+                  "Key": "servicename",
+                  "Value": "srv-02"
+              }
+          ]
+      }
+  ],
+
+  "Monitoring": {
+    "Enabled": true
+  },
+
+  "UserData": "{userdata}"
+}
